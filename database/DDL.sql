@@ -123,7 +123,7 @@ CREATE OR REPLACE TABLE Airports_has_Planes (
 -- Dates are in YYYY-MM-DD format
 
 
-REPLACE INTO Passengers 
+INSERT INTO Passengers 
 (
     passenger_id,
     name,

@@ -25,10 +25,15 @@ PORT = 6527;                        // Set a port number at the top so it's easy
 
 
 
-app.get('/', function(req, res)                                         // This is the basic syntax for what is called a 'route'
+app.get('/', function(req, res)                                 // This is the basic syntax for what is called a 'route'
 {
-    res.render('index');                    // Note the call to render() and not send(). Using render() ensures the templating engine
-});                                         // will process this file, before sending the finished HTML to the client.
+    let query1 = "SELECT * FROM Passengers;";                   // defin our query
+    db.pool.query( query1, function(error, rows, fields){       // execute the query
+        res.render('index', {data: rows});                      // Note the call to render() and not send(). Using render() ensures the templating engine
+    })                                                          // will process this file, before sending the finished HTML to the client.
+});                                                                  // Render the index.hbs file, and also send the renderer
+                                                                     // an object where 'data' is equal to the 'rows' we
+                                                                     // received back from the query
 
 
 
