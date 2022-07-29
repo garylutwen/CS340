@@ -1,0 +1,25 @@
+{
+  "name": "cs340",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garylutwen/CS340.git"
+  },
+  "author": "Gary Lutwen & Byron Magofna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garylutwen/CS340/issues"
+  },
+  "homepage": "https://github.com/garylutwen/CS340#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "forever": "^4.0.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
