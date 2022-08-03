@@ -1,0 +1,43 @@
+<!-- index.hbs -->
+<h1>The server is running!</h1>
+<p>If you see this text, the server is <strong>definitely</strong> working!</p>
+
+{{!-- Create a table --}}
+<table>
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, job_type, years_experience, hourly_wage, full_time, english, spanish, french, arabic, chinese, and japanese, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.plane_id}}</td>
+            <td>{{this.job_type}}</td>
+		<td>{{this.years_experience}}</td>
+            <td>{{this.hourly_wage}}</td>
+            <td>{{this.full_time}}</td>
+            <td>{{this.english}}</td>
+            <td>{{this.spanish}}</td>
+		<td>{{this.french}}</td>
+            <td>{{this.arabic}}</td>
+            <td>{{this.chinese}}</td>
+		<td>{{this.japanese}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+       
