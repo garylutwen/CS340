@@ -200,7 +200,7 @@ app.post('/add-itinerary-ajax', function(req, res)
     // }
 
     // Create the query and run it on the database
-    query5 = `INSERT INTO Itineraries (passenger_id, plane_id, departure_airport_code, arrival_airport_code, cost, purchase_date, date_of_trip, flight_hour, layover_hour) VALUES ('${data.passenger_id}', '${data.plane_id}', ${data.departure_airport_code}, ${data.arrival_airport_code}, ${data.cost}', '${data.purchase_date}', ${data.date_of_trip}, ${data.flight_hour},'${data.layover_hour}')`;
+    query5 = `INSERT INTO Itineraries (passenger_id, plane_id, departure_airport_code, arrival_airport_code, cost, purchase_date, date_of_trip, flight_hour, layover_hour) VALUES ('${data.passenger_id}', '${data.plane_id}', '${data.departure_airport_code}', '${data.arrival_airport_code}', '${data.cost}', '${data.purchase_date}', '${data.date_of_trip}', '${data.flight_hour}','${data.layover_hour}')`;
     console.log("Query: ", query5)
     db.pool.query(query5, function(error, rows, fields){
 
@@ -255,7 +255,7 @@ app.post('/add-plane-ajax', function(req, res)
     // }
 
     // Create the query and run it on the database
-    query7 = `INSERT INTO Planes (passenger_id, departure_airport_code, arrival_airport_code, type, manufactured_year, range_capacity, passenger_capacity, meal_served) VALUES ('${data.passenger_id}', '${data.departure_airport_code}', ${data.arrival_airport_code}, ${data.type}, '${data.manufactured_year}', '${data.range_capacity}', ${data.passenger_capacity}, ${data.meal_served})`;
+    query7 = `INSERT INTO Planes (passenger_id, departure_airport_code, arrival_airport_code, type, manufactured_year, range_capacity, passenger_capacity, meal_served) VALUES ('${data.passenger_id}', '${data.departure_airport_code}', '${data.arrival_airport_code}', '${data.type}', '${data.manufactured_year}', '${data.range_capacity}', '${data.passenger_capacity}', '${data.meal_served}')`;
     console.log("Query: ", query7)
     db.pool.query(query7, function(error, rows, fields){
 
@@ -311,7 +311,7 @@ app.post('/add-crew-ajax', function(req, res)
     // }
 
     // Create the query and run it on the database
-    query9 = `INSERT INTO Crew (plane_id, job_type, years_experience, hourly_wage, full_time, english, spanish, french, arabic, chinese, japanese) VALUES ('${data.plane_id}', '${data.job_type}', ${data.years_experience}, ${data.hourly_wage}, '${data.full_time}', '${data.english}', '${data.spanish}', ${data.french}, ${data.arabic}, '${data.chinese}', ${data.japanese})`;
+    query9 = `INSERT INTO Crew (plane_id, job_type, years_experience, hourly_wage, full_time, english, spanish, french, arabic, chinese, japanese) VALUES ('${data.plane_id}', '${data.job_type}', '${data.years_experience}', '${data.hourly_wage}', '${data.full_time}', '${data.english}', '${data.spanish}', '${data.french}', '${data.arabic}', '${data.chinese}', '${data.japanese}')`;
     console.log("Query: ", query9)
     db.pool.query(query9, function(error, rows, fields){
 
