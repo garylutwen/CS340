@@ -21,6 +21,7 @@
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr>
+            <td>{{this.booking_id}}</td>
             <td>{{this.passenger_id}}</td>
             <td>{{this.plane_id}}</td>
             <td>{{this.departure_airport_code}}</td>
@@ -42,7 +43,7 @@
 <!-- /views/index.hbs -->
 
 {{!-- Form to add a record to the table  --}}
-<h2>Adding Data with AJAX</h2>
+<h3>Adding ITINERARY Data with AJAX</h3>
 <p>To add a new itinerary, please enter their information below and click 'Submit'!</p>
 <form id="add-itinerary-form-ajax">
     <label for="passenger">Passenger ID: </label>

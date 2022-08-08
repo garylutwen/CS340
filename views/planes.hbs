@@ -1,5 +1,5 @@
 {{!-- Create a table --}}
-<table id="airport-table">
+<table id="plane-table">
 
     {{!-- Header section --}}
     <thead>
@@ -21,11 +21,14 @@
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr>
+            <td>{{this.passenger_id_code}}</td>
             <td>{{this.departure_airport_code}}</td>
             <td>{{this.arrival_airport_code}}</td>
-            <td>{{this.continent}}</td>
-            <td>{{this.country}}</td>
-            <td>{{this.city}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.manufactured_year}}</td>
+            <td>{{this.range_capacity}}</td>
+            <td>{{this.passenger_capacity}}</td>
+            <td>{{this.meal_served}}</td>
 
         </tr>
         {{/
@@ -39,26 +42,35 @@
 
 {{!-- Form to add a record to the table  --}}
 <h2>Adding Data with AJAX</h2>
-<p>To add a new airport, please enter their information below and click 'Submit'!</p>
-<form id="add-airport-form-ajax">
-    <label for="departure_airport_code">Departure: </label>
-    <input type="text" name="departure" id="departure">
+<p>To add a new plane, please enter their information below and click 'Submit'!</p>
+<form id="add-plane-form-ajax">
+    <label for="passenger_id">Passenger ID: </label>
+    <input type="text" name="passenger_id" id="passenger_id">
     
+    <label for="departure_airport_code"> Departure: </label>
+    <input type="text" name="departure_airport_code" id="departure_airport_code">
+
     <label for="arrival_airport_code"> Arrival: </label>
-    <input type="text" name="arrival" id="arrival">
+    <input type="text" name="arrival_airport_code" id="arrival_airport_code">
 
-    <label for="continent">Continent: </label>
-    <input type="text" name="continent" id="continent">
+    <label for="type">Type: </label>
+    <input type="text" name="type" id="type">
 
-    <label for="country">Country </label>
-    <input type="text" name="country" id="country">
+    <label for="manufactured_year">Manufactured Year: </label>
+    <input type="text" name="manufactured_year" id="manufactured_year">
 
-    <label for="city">City </label>
-    <input type="text" name="city" id="city">
+    <label for="range_capacity">Range: </label>
+    <input type="text" name="range_capacity" id="range_capacity">
+
+    <label for="passenger_capacity">Passenger Capacity: </label>
+    <input type="text" name="passenger_capacity" id="passenger_capacity">
+
+    <label for="meal_served">Meal: </label>
+    <input type="text" name="meal_served" id="meal_served">
 
     <input type="submit">
 </form>
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
-<script src="./js/add_airport.js"></script>
+<script src="./js/add_plane.js"></script>
 

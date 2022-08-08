@@ -109,7 +109,7 @@ addRowToTable = (data) => {
     arrival_airport_code_cell.innerText = newRow.arrival_airport_code;
     type_cell.innerText = newRow.type;
     manufactured_year_cell.innerText = newRow.manufactured_year;
-    range_capacity_cell.innerText = newRow.arrival_range_capacity;
+    range_capacity_cell.innerText = newRow.range_capacity;
     passenger_capacity_cell.innerText = newRow.passenger_capacity;
     meal_served_cell.innerText = newRow.meal_served;
 

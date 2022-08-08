@@ -100,7 +100,7 @@ addRowToTable = (data) => {
     row.appendChild(email_cell);
     row.appendChild(phone_num_cell);
     row.appendChild(birth_date_cell);
-    row.appendChild(address);
+    row.appendChild(address_cell);
     
     // Add the row to the table
     currentTable.appendChild(row);
