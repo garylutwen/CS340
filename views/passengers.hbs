@@ -35,10 +35,7 @@
             <td><button onclick="deletePassenger({{this.passenger_id}})">Delete</button></td>
 
         </tr>
-        {{/
-        
-        
-        each}}
+        {{/each}}
     </tbody>
 </table>
 <script src="./js/delete_passenger.js"></script>
@@ -75,7 +72,7 @@
 <h2>Update A Passenger</h2>
 <p>To update a specific passenger's email, select their name from the drop-down menu on the left side and type in their new email on the right</p>
 <form id="update-passenger-form-ajax">
-    <label for="input-name">Name: </label>
+    <label for="input-name">Update: </label>
     <select name="input-name" id="update-selected-name">
         <option value="test">Select a Passenger</option>
             {{#each data}}
@@ -83,8 +80,20 @@
             {{/each}}
     </select>
 
-    <label for="input-email">New Email: </label>
+    <label for="input-name">Change Name: </label>
+    <input type="text" name="input-name" id="update-name">
+
+    <label for="input-email">Change Email: </label>
     <input type="text" name="input-email" id="update-email">
+
+    <label for="input-phone-num">Change Phone Number: </label>
+    <input type="text" name="input-phone-num" id="update-phone-num">
+
+    <label for="input-birthdate">Change Birth Date: </label>
+    <input type="date" name="input-birthdate" id="update-birthdate">
+
+    <label for="input-address">Change Address: </label>
+    <input type="text" name="input-address" id="update-address">
 
     <input type="submit">
 </form>

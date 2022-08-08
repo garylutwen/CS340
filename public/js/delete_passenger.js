@@ -33,13 +33,22 @@ function deleteRow(passenger_id) {
         // rows would be accessed using the "row" var assigned in the for loop
         if (table.rows[i].getAttribute("data-value") == passenger_id) {
             table.deleteRow(i);
+            deleteDropDownMenu(passenger_id);
             break;
         }
     }
 }
 
 
-
+function deleteDropDownMenu(passenger_id) {
+    let selectMenu = document.getElementById("update-selected-name");
+    for (let i = 0; i < selectMenu.length; i++){
+        if (Number(selectMenu.options[i].value) === Number(passenger_id)){
+            selectMenu[i].remove();
+            break;
+        } 
+    }
+}
 
 
 

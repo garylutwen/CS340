@@ -380,18 +380,21 @@ app.delete('/delete-passenger-ajax/', function(req, res, next) {
 app.put('/put-passenger-ajax', function(req, res, next) {
     let data = req.body;
 
-    // let email = parseInt(data.email);
     let passenger = parseInt(data.name);
+    let name = data.newName;
     let email = data.email;
+    let phoneNum = data.phoneNum;
+    let birthDate = data.birthDate;
+    let address = data.address;
 
-    console.log("email: " + email);
-    console.log("passenger: " + passenger);
 
-    let queryUpdateEmail = 'UPDATE Passengers SET email = ? WHERE Passengers.passenger_id = ?';
+    // let queryUpdate = 'UPDATE Passengers SET name = ?, email = ?, phone_num = ?, birth_date = ?, address = ? WHERE Passengers.passenger_id = ?';
+    let queryUpdate = 'UPDATE Passengers SET name = ?, email = ?, phone_num = ?, birth_date = ?, address = ? WHERE Passengers.passenger_id = ?';
     let selectPassenger = 'SELECT * FROM Passengers WHERE passenger_id = ?';
 
         // run 1st query
-        db.pool.query(queryUpdateEmail, [email, passenger], function(error, rows, fields) {
+        // db.pool.query(queryUpdate, [name, email, phoneNum, , birthDate, address, passenger], function(error, rows, fields) {
+        db.pool.query(queryUpdate, [name, email, phoneNum, birthDate, address, passenger], function(error, rows, fields) {
             if (error) {
                 
                 // log error and send response 400 indicating a bad request.
@@ -405,6 +408,12 @@ app.put('/put-passenger-ajax', function(req, res, next) {
                         console.log("2nd update query error");
                         res.sendStatus(400);
                     } else {
+                        console.log('name: ' + name);
+                        console.log('email: ' + email);
+                        console.log('phone: ' + phoneNum);
+                        console.log('birth: ' + birthDate);
+                        console.log('address: ' + address);
+                        console.log('Successfully Updated');
                         res.send(rows);
                     }
                 })
