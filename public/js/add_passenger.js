@@ -86,6 +86,8 @@ addRowToTable = (data) => {
     let birth_date_cell = document.createElement("TD");
     let address_cell = document.createElement("TD");
 
+    let deleteCell = document.createElement("TD");
+
     // Fill the cells with correct data
     id_cell.innerText = newRow.passenger_id;
     name_cell.innerText = newRow.name;
@@ -94,6 +96,12 @@ addRowToTable = (data) => {
     address_cell.innerText = newRow.address;
     birth_date_cell.innerText = newRow.birth_date;
 
+    deleteCell = document.createElement("button");
+    deleteCell.innerHTML = "Delete";
+    deleteCell.onclick = function() {
+        deletePassenger(newRow.id);
+    };
+
     // Add the cells to the row 
     row.appendChild(id_cell);
     row.appendChild(name_cell);
@@ -101,6 +109,10 @@ addRowToTable = (data) => {
     row.appendChild(phone_num_cell);
     row.appendChild(birth_date_cell);
     row.appendChild(address_cell);
+    row.appendChild(deleteCell);
+
+    // add a row attribute so the deleteRow function can find a newly added row
+    row.setAttribute('data-value', newRow.id);
     
     // Add the row to the table
     currentTable.appendChild(row);

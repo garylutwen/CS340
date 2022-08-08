@@ -354,6 +354,26 @@ app.post('/add-crew-ajax', function(req, res)
 
 
 
+// delete implementation ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+app.delete('/delete-passenger-ajax/', function(req, res, next) {
+    let data = req.body;
+    let passenger_id = parseInt(data.id);
+    let delete_Passengers= 'DELETE FROM Passengers WHERE passenger_id = ?';
+
+    // run query
+    db.pool.query(delete_Passengers, [passenger_id], function(error, rows, fields) {
+        if (error) {
+            console.log(error);
+            res.sendStatus(400);
+        } else {
+            res.sendStatus(204);
+        }
+    })
+});
+
+
+
 
 //   LISTENER
 
