@@ -367,12 +367,50 @@ app.delete('/delete-passenger-ajax/', function(req, res, next) {
             console.log(error);
             res.sendStatus(400);
         } else {
+            // add second query for m:m here
             res.sendStatus(204);
         }
     })
 });
 
 
+
+// update implementation ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+app.put('/put-passenger-ajax', function(req, res, next) {
+    let data = req.body;
+
+    // let email = parseInt(data.email);
+    let passenger = parseInt(data.name);
+    let email = data.email;
+
+    console.log("email: " + email);
+    console.log("passenger: " + passenger);
+
+    let queryUpdateEmail = 'UPDATE Passengers SET email = ? WHERE Passengers.passenger_id = ?';
+    let selectPassenger = 'SELECT * FROM Passengers WHERE passenger_id = ?';
+
+        // run 1st query
+        db.pool.query(queryUpdateEmail, [email, passenger], function(error, rows, fields) {
+            if (error) {
+                
+                // log error and send response 400 indicating a bad request.
+                console.log("1st update query error");
+                res.sendStatus(400);
+            } else {
+                
+                // if there was no error, run 2nd query and return that data so we can use it to update passengers table on front end
+                db.pool.query(selectPassenger, [email], function(error, rows, fields) {
+                    if (error) {
+                        console.log("2nd update query error");
+                        res.sendStatus(400);
+                    } else {
+                        res.send(rows);
+                    }
+                })
+            }
+        })
+});
 
 
 //   LISTENER

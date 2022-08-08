@@ -70,3 +70,22 @@
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add_passenger.js"></script>
 
+
+{{!-- Update Implementation --}}
+<h2>Update A Passenger</h2>
+<p>To update a specific passenger's email, select their name from the drop-down menu on the left side and type in their new email on the right</p>
+<form id="update-passenger-form-ajax">
+    <label for="input-name">Name: </label>
+    <select name="input-name" id="update-selected-name">
+        <option value="test">Select a Passenger</option>
+            {{#each data}}
+            <option value="{{this.passenger_id}}">{{this.name}}</option>
+            {{/each}}
+    </select>
+
+    <label for="input-email">New Email: </label>
+    <input type="text" name="input-email" id="update-email">
+
+    <input type="submit">
+</form>
+<script src="./js/update_passenger.js"></script>
