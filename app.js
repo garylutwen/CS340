@@ -25,6 +25,12 @@ var db = require('./db-connector')
 /*
     ROUTES
 */
+
+app.get('/', function(req, res)
+    {
+        res.render('homepage')
+    });
+
 app.get('/passengers', function(req, res)
     {
         let query1 = "SELECT * FROM Passengers"
