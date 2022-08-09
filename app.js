@@ -81,13 +81,6 @@ app.post('/add-passenger-ajax', function(req, res)
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
-    // Capture NULL values
-    // let homeworld = parseInt(data.homeworld);
-    // if (isNaN(homeworld))
-    // {
-    //     homeworld = 'NULL'
-    // }
-
     // let age = parseInt(data.age);
     // if (isNaN(age))
     // {
@@ -95,7 +88,7 @@ app.post('/add-passenger-ajax', function(req, res)
     // }
 
     // Create the query and run it on the database
-    query1 = `INSERT INTO Passengers (name, email, phone_num, birth_date, address) VALUES ('${data.name}', '${data.email}', ${data.phone_num}, ${data.birth_date}, '${data.address}')`;
+    query1 = `INSERT INTO Passengers (name, email, phone_num, birth_date, address) VALUES ('${data.name}', '${data.email}', '${data.phone_num}', '${data.birth_date}', '${data.address}')`;
     console.log("Query: ", query1)
     db.pool.query(query1, function(error, rows, fields){
 
@@ -191,13 +184,8 @@ app.post('/add-itinerary-ajax', function(req, res)
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
-    // Capture NULL values
-    // let homeworld = parseInt(data.homeworld);
-    // if (isNaN(homeworld))
-    // {
-    //     homeworld = 'NULL'
-    // }
 
+    // Capture NULL values
     // let age = parseInt(data.age);
     // if (isNaN(age))
     // {
@@ -205,7 +193,7 @@ app.post('/add-itinerary-ajax', function(req, res)
     // }
 
     // Create the query and run it on the database
-    query5 = `INSERT INTO Itineraries (passenger_id, plane_id, departure_airport_code, arrival_airport_code, cost, purchase_date, date_of_trip, flight_hour, layover_hour) VALUES ('${data.passenger_id}', '${data.plane_id}', '${data.departure_airport_code}', '${data.arrival_airport_code}', '${data.cost}', '${data.purchase_date}', '${data.date_of_trip}', '${data.flight_hour}','${data.layover_hour}')`;
+    query5 = `INSERT INTO Itineraries (passenger_id, plane_id, departure_airport_code, arrival_airport_code, cost, purchase_date, date_of_trip, flight_hour, layover_hour) VALUES (${data.passenger}, ${data.plane}, '${data.departure}', '${data.arrival}', ${data.cost}, '${data.purchaseDate}', '${data.dateTrip}', ${data.flightHour}, ${data.layoverHour})`;
     console.log("Query: ", query5)
     db.pool.query(query5, function(error, rows, fields){
 
@@ -316,7 +304,7 @@ app.post('/add-crew-ajax', function(req, res)
     // }
 
     // Create the query and run it on the database
-    query9 = `INSERT INTO Crew (plane_id, job_type, years_experience, hourly_wage, full_time, english, spanish, french, arabic, chinese, japanese) VALUES ('${data.plane_id}', '${data.job_type}', '${data.years_experience}', '${data.hourly_wage}', '${data.full_time}', '${data.english}', '${data.spanish}', '${data.french}', '${data.arabic}', '${data.chinese}', '${data.japanese}')`;
+    query9 = `INSERT INTO Crew (plane_id, job_type, years_experience, hourly_wage, full_time, english, spanish, french, arabic, chinese, japanese) VALUES (${data.plane_id}, '${data.job_type}', '${data.years_experience}', '${data.hourly_wage}', ${data.full_time}, ${data.english}, ${data.spanish}, ${data.french}, ${data.arabic}, ${data.chinese}, ${data.japanese})`;
     console.log("Query: ", query9)
     db.pool.query(query9, function(error, rows, fields){
 

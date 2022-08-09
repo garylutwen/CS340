@@ -22,25 +22,34 @@ addItineraryForm.addEventListener("submit", function (e) {
     let inputLayoverHour = document.getElementById("layover_hour");
 
     // Get the values from the form fields
-    let emailValue = inputEmail.value
-    let nameValue =  inputName.value
-    let phoneValue = inputPhoneNum.value
-    let birthDateValue = inputBirthDate.value
-    let addressValue = inputAddress.value
+    let passengerVal = inputName.value;
+    let planeVal = inputPlane.value;
+    let departVal = inputDepartureCode.value;
+    let arrivalVal = inputArrivalCode.value;
+    let costVal = inputCost.value;
+    let pDateVal = inputPurchaseDate.value;
+    let dateTripVal = inputDateTrip.value;
+    let flightHourVal = inputFlightHour.value;
+    let layoverHourVal = inputLayoverHour.value;
+
 
     // Put our data we want to send in a javascript object
     let data = {
-        name: nameValue,
-        email: emailValue,
-        phone_num: phoneValue,
-        birth_date: birthDateValue,
-        address: addressValue
+        passenger: passengerVal,
+        plane: planeVal,
+        departure: departVal,
+        arrival: arrivalVal,
+        cost: costVal,
+        purchaseDate: pDateVal,
+        dateTrip: dateTripVal,
+        flightHour: flightHourVal,
+        layoverHour: layoverHourVal,
     }
     console.log("data: ", data)
     
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/add-passenger-ajax", true);
+    xhttp.open("POST", "/add-itinerary-ajax", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
     // Tell our AJAX request how to resolve
@@ -52,11 +61,14 @@ addItineraryForm.addEventListener("submit", function (e) {
 
             // Clear the input fields for another transaction
             inputName.value = '';
-            inputEmail.value = '';
-            inputBirthDate.value = '';
-            inputPhoneNum.value = '';
-            inputAddress.value = '';
-
+            inputPlane.value = '';
+            inputDepartureCode.value = '';
+            inputArrivalCode.value = '';
+            inputCost.value = '';
+            inputPurchaseDate.value = '';
+            inputDateTrip.value = '';
+            inputFlightHour.value = '';
+            inputLayoverHour.value = '';
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
             console.log("There was an error with the input.")
@@ -85,28 +97,43 @@ addRowToTable = (data) => {
 
     // Create a row and 4 cells
     let row = document.createElement("TR");
-    let id_cell = document.createElement("TD")
-    let name_cell = document.createElement("TD");
-    let email_cell = document.createElement("TD");
-    let phone_num_cell = document.createElement("TD");
-    let birth_date_cell = document.createElement("TD");
-    let address_cell = document.createElement("TD");
+    let booking_id_cell = document.createElement("TD")
+    let passenger_id_cell = document.createElement("TD");
+    let plane_id_cell = document.createElement("TD");
+    let depart_code_cell = document.createElement("TD");
+    let arrival_code_cell = document.createElement("TD");
+    let cost_cell = document.createElement("TD");
+    let pdate_cell = document.createElement("TD");
+    let date_trip_cell = document.createElement("TD");
+    let flight_hour_cell = document.createElement("TD");
+    let layover_hour_cell = document.createElement("TD");
+
 
     // Fill the cells with correct data
-    id_cell.innerText = newRow.passenger_id;
-    name_cell.innerText = newRow.name;
-    email_cell.innerText = newRow.email;
-    phone_num_cell.innerText = newRow.phone_num;
-    address_cell.innerText = newRow.address;
-    birth_date_cell.innerText = newRow.birth_date;
+    booking_id_cell.innerText = newRow.booking_id;
+    passenger_id_cell.innerText = newRow.passenger_id;
+    plane_id_cell.innerText = newRow.plane_id;
+    depart_code_cell.innerText = newRow.departure_airport_code;
+    arrival_code_cell.innerText = newRow.arrival_airport_code;
+    cost_cell.innerText = newRow.cost;
+    pdate_cell.innerText = newRow.purchase_date;
+    date_trip_cell.innerText = newRow.date_of_trip;
+    flight_hour_cell.innerText = newRow.flight_hour;
+    layover_hour_cell.innerHTML = newRow.layover_hour;
+
 
     // Add the cells to the row 
-    row.appendChild(id_cell);
-    row.appendChild(name_cell);
-    row.appendChild(email_cell);
-    row.appendChild(phone_num_cell);
-    row.appendChild(birth_date_cell);
-    row.appendChild(address_cell);
+    row.appendChild(booking_id_cell);
+    row.appendChild(passenger_id_cell);
+    row.appendChild(plane_id_cell);
+    row.appendChild(depart_code_cell);
+    row.appendChild(arrival_code_cell);
+    row.appendChild(cost_cell);
+    row.appendChild(pdate_cell);
+    row.appendChild(date_trip_cell);
+    row.appendChild(flight_hour_cell);
+    row.appendChild(layover_hour_cell);
+
     
     // Add the row to the table
     currentTable.appendChild(row);

@@ -69,15 +69,15 @@ addCrewForm.addEventListener("submit", function (e) {
             
             inputPlaneID.value = '';
             inputJobType.value = '';
-            inputYearsExperience = '';
-            inputHourlyWage = '';
-            inputFullTime = '';
-            inputEnglish = '';
-            inputSpanish = '';
-            inputFrench = '';
-            inputArabic = '';
-            inputChinese = '';
-            inputJapanese = '';
+            inputYearsExperience.value = '';
+            inputHourlyWage.value = '';
+            inputFullTime.value = '';
+            inputEnglish.value = '';
+            inputSpanish.value = '';
+            inputFrench.value = '';
+            inputArabic.value = '';
+            inputChinese.value = '';
+            inputJapanese.value = '';
 
 
         }
