@@ -1,4 +1,5 @@
 
+// NOTE:  all .js and .hbs files were modified from the starter code provided by this course
 
 function deletePassenger(passenger_id) {
     // put data we want to send in a js object

@@ -10,7 +10,6 @@ var app     = express();            // We need to instantiate an express object 
 PORT        = 6572;                 // Set a port number at the top so it's easy to change in the future
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-// app.js
 
 const { engine } = require('express-handlebars');
 var exphbs = require('express-handlebars');     // Import express-handlebars

@@ -1,3 +1,6 @@
+
+// NOTE:  all .js and .hbs files were modified from the starter code provided by this course
+
 // Get the objects we need to modify
 let addPassengerForm = document.getElementById('add-passenger-form-ajax');
 
