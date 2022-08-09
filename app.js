@@ -2,7 +2,7 @@
     SETUP
 */
 
-// NOTE:  all .js and .hbs files were modified from the starter code provided by this course
+// NOTE:  all .js and .hbs files were modified from the starter code provided by the following link: https://github.com/osu-cs340-ecampus/nodejs-starter-app
 
 // Express
 var express = require('express');   // We are using the express library for the web server

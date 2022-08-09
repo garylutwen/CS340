@@ -1,5 +1,5 @@
 
-// NOTE:  all .js and .hbs files were modified from the starter code provided by this course
+// NOTE:  all .js and .hbs files were modified from the starter code provided by the following link: https://github.com/osu-cs340-ecampus/nodejs-starter-app
 
 function deletePassenger(passenger_id) {
     // put data we want to send in a js object
